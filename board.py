@@ -9,6 +9,7 @@ class board:
         self.black = "B"
         self.white_pieces = Pieces(self.white)
         self.black_pieces = Pieces(self.white)
+        self.playing = self.white
 
     def print_board(self):
         for row in self.board:
@@ -31,6 +32,16 @@ class board:
             return self.white_pieces.get_piece_shape(piece)
         else:
             return self.black_pieces.get_piece_shape(piece)
+    
+    def get_pieces(self,color):
+        if color == self.white:
+            return self.white_pieces.piece_list
+        else:
+            return self.black_pieces.piece_list
+        
+    def print_piece(self, piece, color):
+        for row in self.get_piece(piece, color):
+            print(row)
 
 
 def main():
